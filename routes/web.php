@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controller\GroceriesController; 
+use App\Http\Controllers\GroceriesController; 
 Route::get('/groceries', [GroceriesController::class, 'index'])->name('groceries.index'); 
 Route::get('/groceries/create', [GroceriesController::class, 'create'])->name('groceries.create'); 
 Route::post('/groceries', [GroceriesController::class, 'store'])->name('groceries.store'); 
