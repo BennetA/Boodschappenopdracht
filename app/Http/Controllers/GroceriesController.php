@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Grocery;
+use resources\views\groceries;
 class GroceriesController extends Controller
 {
     /**
@@ -13,7 +14,18 @@ class GroceriesController extends Controller
      */
     public function index()
     {
-        return "Index page";
+        Route::get('/', function () {
+            return view('groceries.index', ['groceries' => $groceries]);
+        });
+
+        // dd(Grocery::all());
+ 
+        // foreach (Grocery::all() as $grocery) {
+        // echo $grocery->name;
+        // echo ': ';
+        // echo $grocery->price;
+        // echo '; ';
+        //}
     }
 
     /**

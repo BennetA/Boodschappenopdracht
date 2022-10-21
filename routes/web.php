@@ -22,4 +22,10 @@ Route::get('/groceries/{grocery}/edit}', [GroceriesController::class, 'edit'])->
 Route::put('/groceries/{grocery}}', [GroceriesController::class, 'update'])->name('groceries.update');
 Route::delete('/groceries/{grocery}}', [GroceriesController::class, 'destroy'])->name('groceries.destroy');
 Route::redirect('/', '/groceries');
+// Route::get('/allGroceries', function () {
+//     return view('groceries', [
+//         'groceries' -> Grocery::all()
+//     ]);
+  
+// });
 
