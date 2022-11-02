@@ -14,18 +14,18 @@ class GroceriesController extends Controller
      */
     public function index()
     {
-        Route::get('/', function () {
-            return view('groceries.index', ['groceries' => $groceries]);
-        });
+        // Route::get('/', function () {
+        //     return view('groceries.index', ['groceries' => $groceries]);
+        // });
 
         // dd(Grocery::all());
  
-        // foreach (Grocery::all() as $grocery) {
-        // echo $grocery->name;
-        // echo ': ';
-        // echo $grocery->price;
-        // echo '; ';
-        //}
+        foreach (Grocery::all() as $grocery) {
+        echo $grocery->name;
+        echo ': ';
+        echo $grocery->price;
+        echo '; ';
+        }
     }
 
     /**
