@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Grocery;
 use resources\views\groceries;
+
 class GroceriesController extends Controller
 {
     /**
@@ -14,18 +15,23 @@ class GroceriesController extends Controller
      */
     public function index()
     {
+        $groceriesData = static::find($Grocery);;
+        Views::get('/', function() {
+            return view('groceries.index', ['groceries' => $groceriesData]);
+        });
+
         // Route::get('/', function () {
         //     return view('groceries.index', ['groceries' => $groceries]);
         // });
 
         // dd(Grocery::all());
  
-        foreach (Grocery::all() as $grocery) {
-        echo $grocery->name;
-        echo ': ';
-        echo $grocery->price;
-        echo '; ';
-        }
+        // foreach (Grocery::all() as $grocery) {
+        // echo $grocery->name;
+        // echo ': ';
+        // echo $grocery->price;
+        // echo '; ';
+        // }
     }
 
     /**
