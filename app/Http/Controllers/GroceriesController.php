@@ -15,23 +15,10 @@ class GroceriesController extends Controller
      */
     public function index()
     {
-        $groceriesData = static::find($Grocery);;
-        Views::get('/', function() {
-            return view('groceries.index', ['groceries' => $groceriesData]);
-        });
+        $groceriesData = Grocery::all();
 
-        // Route::get('/', function () {
-        //     return view('groceries.index', ['groceries' => $groceries]);
-        // });
+        return view('groceries.index', ['groceries' => $groceriesData]);
 
-        // dd(Grocery::all());
- 
-        // foreach (Grocery::all() as $grocery) {
-        // echo $grocery->name;
-        // echo ': ';
-        // echo $grocery->price;
-        // echo '; ';
-        // }
     }
 
     /**
