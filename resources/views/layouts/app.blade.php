@@ -9,4 +9,8 @@
         @yield('banner')
     </header>
     @yield('content')
+    <footer>
+        @yield('boodschaptoevoeging')
+        @yield('homepage')
+    </footer>
 </body>

@@ -8,10 +8,24 @@
         @php 
             $grandTotal = 0;
         @endphp
-
+        <table>
+            <tr>
+                <td>
+                    Product
+                </td>
+                <td>
+                    Prijs
+                </td>
+                <td>
+                    Aantal
+                </td>
+                <td>
+                    Totaal
+                </td>
+            </tr>
         @foreach ($groceries as $grocery)
        
-        <table>
+        
             <tr>
                 <td>
                     {{ $grocery->name }}
@@ -26,14 +40,36 @@
                     {{ $subtotal = $grocery->price * $grocery->quantity }}
                 </td>
             </tr>
-        </table>
+        
 
         @php
         $grandTotal += $subtotal;
         @endphp
 
         @endforeach
-
-    {{ $grandTotal }}
+        <tr>
+            <td>
+                Totaal
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                {{ $grandTotal }}
+             </td>
+        </tr>
+    </table>
 @endsection
 
+@section('homepage')
+    <p>
+        <a href="{{ route('groceries.index') }}">Overzicht
+    </p>
+@endsection
+
+@section('boodschaptoevoeging')
+    <p>
+    <a href="{{ route('groceries.create') }}"> Voeg nieuwe boodschappen toe
+    </p>
+@endsection
