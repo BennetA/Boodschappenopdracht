@@ -28,7 +28,7 @@ class GroceriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('groceries.create');
     }
 
     /**
