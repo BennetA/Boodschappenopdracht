@@ -39,7 +39,14 @@ class GroceriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "You called the store method on the GroceriesController"; 
+        // $attributes = request()->validate([
+        //     'naam' => ['required', 'max:255'],
+        //     'prijs'  => ['required', 'numeric'],
+        //     'aantal' => ['required', 'integer', 'gt:0'],
+        // ]);
+
+        //Grocery::create($attributes);
     }
 
     /**

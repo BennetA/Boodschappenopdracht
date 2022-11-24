@@ -3,7 +3,9 @@
 <section class="px-6 py-8">
     <main class="max-w-lg mx-auto mt-10 bg-gray-100 border-gray-200 p-6 rounded-xl">
         <h1>Voeg een boodschap toe</h1>
-        <form method="POST" action="/store">
+        <form method="post" action="{{ route('groceries.store') }}">
+
+            @csrf
             <div class="mb-6">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="naam">
                     naam
@@ -37,7 +39,15 @@
                     required
                 >
             </div>
+            <div class="mb-6">
+                <button type="submit">Sla boodschap op</button> 
+            </div>
+
 
         </form>
+
+
     </main>
 </section>
+<!-- <form action="" method="get"></form>
+<form action="" method="post"></form> -->
