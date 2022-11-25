@@ -12,7 +12,7 @@
                 </label>
                 <input class="border border-gray-400 p-2 w-full"
                     type="text"
-                    name="naam"
+                    name="name"
                     id="naam"
                     required
                 >
@@ -23,7 +23,7 @@
                 </label>
                 <input class="border border-gray-400 p-2 w-full"
                     type="decimal"
-                    name="prijs"
+                    name="price"
                     id="prijs"
                     required
                 >
@@ -34,7 +34,7 @@
                 </label>
                 <input class="border border-gray-400 p-2 w-full"
                     type="integer"
-                    name="aantal"
+                    name="quantity"
                     id="aantal"
                     required
                 >

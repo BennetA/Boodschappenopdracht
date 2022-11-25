@@ -9,6 +9,11 @@ class Grocery extends Model
 {
     use HasFactory;
     protected $table = 'groceries';
+    protected $fillable = [
+        'name',
+        'price',
+        'quantity',
+    ];
 }
 
 

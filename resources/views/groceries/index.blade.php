@@ -38,7 +38,16 @@
                 </td>
                 <td>
                     {{ $subtotal = $grocery->price * $grocery->quantity }}
-                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <a href="/groceries/{{$grocery->id}}/edit" class="text-blue-500 hover:text-indigo-900">Bijwerken</a>
+                 </td>
+                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <form method="POST" action="/groceries/{{$grocery->id}}">
+                        @csrf
+                        @method('delete')
+                        <button class="text-xs text-gray-400">Verwijderen</button>
+                    </form>
+                 </td>
             </tr>
         
 
