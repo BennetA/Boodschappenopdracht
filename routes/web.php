@@ -18,9 +18,9 @@ use App\Http\Controllers\GroceriesController;
 Route::get('/groceries', [GroceriesController::class, 'index'])->name('groceries.index'); 
 Route::get('/groceries/create', [GroceriesController::class, 'create'])->name('groceries.create'); 
 Route::post('/groceries', [GroceriesController::class, 'store'])->name('groceries.store'); 
-Route::get('/groceries/{grocery}/edit}', [GroceriesController::class, 'edit'])->name('groceries.edit'); 
-Route::put('/groceries/{grocery}}', [GroceriesController::class, 'update'])->name('groceries.update');
-Route::delete('/groceries/{grocery}}', [GroceriesController::class, 'destroy'])->name('groceries.destroy');
+Route::get('/groceries/{grocery}/edit', [GroceriesController::class, 'edit'])->name('groceries.edit'); 
+Route::patch('/groceries/{grocery}', [GroceriesController::class, 'update'])->name('groceries.update');
+Route::delete('/groceries/{grocery}', [GroceriesController::class, 'destroy'])->name('groceries.destroy');
 Route::redirect('/', '/groceries');
 
 

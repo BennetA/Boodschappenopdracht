@@ -16,6 +16,11 @@
                     id="naam"
                     required
                 >
+
+                @error('name')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+
             </div>
             <div class="mb-6">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="prijs">
@@ -27,6 +32,11 @@
                     id="prijs"
                     required
                 >
+                
+                @error('price')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+
             </div>
             <div class="mb-6">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="aantal">
@@ -38,6 +48,11 @@
                     id="aantal"
                     required
                 >
+
+                @error('quantity')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+
             </div>
             <div class="mb-6">
                 <button type="submit">Sla boodschap op</button> 

@@ -67,9 +67,9 @@ class GroceriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grocery $id)
+    public function edit(Grocery $grocery)
     {
-        return view('groceries.edit', ['grocery' => $id]);
+        return view('groceries.edit', ['grocery' => $grocery]);
     }
 
     /**
@@ -79,7 +79,7 @@ class GroceriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grocery $id)
+    public function update(Request $request, Grocery $grocery)
     {
         $attributes = request()->validate([
             'name' => ['required', 'min:2', 'max:255'],
@@ -87,9 +87,10 @@ class GroceriesController extends Controller
             'quantity' => ['required', 'integer', 'gt:0'],
         ]);
 
-        $post->update($attributes);
-        return back()->with('succes', 'Boodschap bijgewerkt');
+        $grocery->update($attributes);
+        return redirect('/')->with('succes', 'Boodschap bijgewerkt');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -97,7 +98,7 @@ class GroceriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($grocery)
     {
         $grocery->delete();
         return back()->with('succes', 'Boodschap verwijderd');
