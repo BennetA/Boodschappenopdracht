@@ -98,7 +98,7 @@ class GroceriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($grocery)
+    public function destroy(Grocery $grocery)
     {
         $grocery->delete();
         return back()->with('succes', 'Boodschap verwijderd');
