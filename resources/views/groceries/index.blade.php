@@ -14,6 +14,9 @@
                     Product
                 </td>
                 <td>
+                    Categorie
+                </td>
+                <td>
                     Prijs
                 </td>
                 <td>
@@ -29,6 +32,9 @@
             <tr>
                 <td>
                     {{ $grocery->name }}
+                </td>
+                <td>
+                    {{ $grocery->category }}
                 </td>
                 <td>
                     {{ $grocery->price }}
@@ -59,6 +65,8 @@
         <tr>
             <td>
                 Totaal
+            </td>
+            <td>
             </td>
             <td>
             </td>
