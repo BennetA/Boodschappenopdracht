@@ -28,17 +28,10 @@
                 </label>
                 
                 <select class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
-                    <option value="category" disable selected>Categorie</option>
                     @foreach ($categories as $category)
                     <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
                     @endforeach
                 </select>
-                <!-- <input class="border border-gray-400 p-2 w-full"
-                    type="text"
-                    name="category"
-                    id="categorie"
-                    required
-                > -->
 
                 @error('name')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

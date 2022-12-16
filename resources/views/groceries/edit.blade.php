@@ -29,13 +29,12 @@
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="categorie">
                     categorie
                 </label>
-                <input class="border border-gray-400 p-2 w-full"
-                    type="text"
-                    name="category"
-                    id="categorie"
-                    required
-                    value="{{ $grocery->category }}"
-                >
+                <select class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
+                    <option value="category" disable selected>Categorie</option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                    @endforeach
+                </select>
 
                 @error('name')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

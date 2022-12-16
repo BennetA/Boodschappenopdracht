@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Grocery;
+use App\Models\Category;
 use resources\views\groceries;
+
+
 
 class GroceriesController extends Controller
 {
@@ -28,7 +31,8 @@ class GroceriesController extends Controller
      */
     public function create()
     {
-        return view('groceries.create');
+        $categories = Category::all(['category_name']);
+        return view('groceries.create', ['categories' => $categories]);
     }
 
     /**
@@ -37,12 +41,12 @@ class GroceriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Category $Category, Category $category)
     {
         
         $attributes = request()->validate([
             'name' => ['required', 'min:2', 'max:255'],
-            'category' => ['required', 'min:2', 'max:255'],
+            'category' => ['required'],
             'price'  => ['required', 'numeric'],
             'quantity' => ['required', 'integer', 'gt:0'],
         ]);
@@ -68,9 +72,10 @@ class GroceriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Grocery $grocery)
+    public function edit(Grocery $grocery, Category $category)
     {
-        return view('groceries.edit', ['grocery' => $grocery]);
+        $categories = Category::all(['category_name']);
+        return view('groceries.edit', ['grocery' => $grocery], ['categories' => $categories]);
     }
 
     /**
@@ -80,11 +85,11 @@ class GroceriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grocery $grocery)
+    public function update(Request $request, Grocery $grocery, Category $category)
     {
         $attributes = request()->validate([
             'name' => ['required', 'min:2', 'max:255'],
-            'category' => ['required', 'min:2', 'max:255'],
+            'category' => ['required'],
             'price'  => ['required', 'numeric'],
             'quantity' => ['required', 'integer', 'gt:0'],
         ]);
