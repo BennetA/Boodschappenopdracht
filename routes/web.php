@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Grocery;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*

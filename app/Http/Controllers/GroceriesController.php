@@ -41,12 +41,12 @@ class GroceriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Category $Category, Category $category)
+    public function store(Request $request, Grocery $grocery, Category $category)
     {
         
         $attributes = request()->validate([
             'name' => ['required', 'min:2', 'max:255'],
-            'category' => ['required'],
+            'category_name' => ['required'],
             'price'  => ['required', 'numeric'],
             'quantity' => ['required', 'integer', 'gt:0'],
         ]);
