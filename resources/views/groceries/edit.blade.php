@@ -28,10 +28,12 @@
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="categorie">
                     categorie
                 </label>
-                <select class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
-                    <option value="category" disable selected>Categorie</option>
+                {{ $grocery->category }}
+                <select class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl"
+                        name="category">
+                    
                     @foreach ($categories as $category)
-                    <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                    <option value="{{ $category->id }}"@selected($grocery->category->id == $category->id)>{{ $category->category_name }}</option>
                     @endforeach
                 </select>
 

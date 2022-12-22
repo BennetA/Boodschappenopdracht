@@ -27,9 +27,11 @@
                     categorie
                 </label>
                 
-                <select class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
+                <select class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl"
+                        name="category">
+                    <!-- <option value="category" disable selected>Selecteer een categorie</option> -->
                     @foreach ($categories as $category)
-                    <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                        <option value="{{ $category->category_name }}">category_name)>{{ $category->category_name }}</option>
                     @endforeach
                 </select>
 
