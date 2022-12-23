@@ -31,7 +31,7 @@ class GroceriesController extends Controller
      */
     public function create()
     {
-        $categories = Category::all(['category_name']);
+        $categories = Category::all();
         return view('groceries.create', ['categories' => $categories]);
     }
 
@@ -46,7 +46,7 @@ class GroceriesController extends Controller
         
         $attributes = request()->validate([
             'name' => ['required', 'min:2', 'max:255'],
-            'category' => ['required'],
+            'category_id' => ['required'],
             'price'  => ['required', 'numeric'],
             'quantity' => ['required', 'integer', 'gt:0'],
         ]);

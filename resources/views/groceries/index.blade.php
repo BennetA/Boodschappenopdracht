@@ -34,7 +34,7 @@
                     {{ $grocery->name }}
                 </td>
                 <td>
-                    {{ $grocery->category }}
+                    {{ $grocery->category->category_name }}
                 </td>
                 <td>
                     {{ $grocery->price }}

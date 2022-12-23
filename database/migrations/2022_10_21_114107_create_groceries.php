@@ -18,6 +18,7 @@ return new class extends Migration
                 $table->string('name');
                 $table->unsignedBigInteger('category_id');
                 $table->foreign('category_id')->references('id')->on('categories'); // TOOD: vervang deze string voor een biginteger foreign key die naar de categories table verwijst. Zie laravel documentatie over foreign keys.
+                //$table->foreignId('category_id')->constrained();
                 $table->decimal('price');
                 $table->integer('quantity');
                 $table->timestamps();

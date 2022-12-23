@@ -5,6 +5,10 @@
         <h1>Voeg een boodschap toe</h1>
         <form method="post" action="{{ route('groceries.store') }}">
 
+        @if($errors->any())
+            {{ implode('', $errors->all('<div>:message</div>')) }}
+        @endif
+
             @csrf
             <div class="mb-6">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="naam">
@@ -28,10 +32,10 @@
                 </label>
                 
                 <select class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl"
-                        name="category">
+                        name="category_id">
                     <!-- <option value="category" disable selected>Selecteer een categorie</option> -->
                     @foreach ($categories as $category)
-                        <option value="{{ $category->category_name }}">category_name)>{{ $category->category_name }}</option>
+                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                     @endforeach
                 </select>
 
