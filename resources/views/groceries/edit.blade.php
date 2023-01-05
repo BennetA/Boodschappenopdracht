@@ -6,6 +6,12 @@
         <h1>Werk een boodschap bij</h1>
         <form method="post" action="{{ route('groceries.update', $grocery->id) }}">
             @method('PATCH')
+
+            @if($errors->any())
+            {{ implode('', $errors->all('<div>:message</div>')) }}
+            @endif
+
+
             @csrf
             <div class="mb-6">
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="naam">
@@ -28,9 +34,8 @@
                 <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="categorie">
                     categorie
                 </label>
-                {{ $grocery->category }}
                 <select class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl"
-                        name="category">
+                        name="category_id">
                     
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}"@selected($grocery->category->id == $category->id)>{{ $category->category_name }}</option>

@@ -89,7 +89,7 @@ class GroceriesController extends Controller
     {
         $attributes = request()->validate([
             'name' => ['required', 'min:2', 'max:255'],
-            'category' => ['required'],
+            'category_id' => ['required'],
             'price'  => ['required', 'numeric'],
             'quantity' => ['required', 'integer', 'gt:0'],
         ]);
