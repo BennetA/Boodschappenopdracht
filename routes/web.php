@@ -15,14 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\GroceriesController; 
-Route::get('/groceries', [GroceriesController::class, 'index'])->name('groceries.index'); 
+use App\Http\Controllers\GroceriesController;       // TODO: imports altijd bovenaan script zetten (dus onder regel 5 in dit geval)
+Route::get('/groceries', [GroceriesController::class, 'index'])->name('groceries.index');       // TODO: je routes zien er goed uit, maar je kunt overwegen een resource-route te gebruiken
+// (zie documentatie), dat scheelt je 6 regels code :)
 Route::get('/groceries/create', [GroceriesController::class, 'create'])->name('groceries.create'); 
 Route::post('/groceries', [GroceriesController::class, 'store'])->name('groceries.store'); 
 Route::get('/groceries/{grocery}/edit', [GroceriesController::class, 'edit'])->name('groceries.edit'); 
 Route::patch('/groceries/{grocery}', [GroceriesController::class, 'update'])->name('groceries.update');
 Route::delete('/groceries/{grocery}', [GroceriesController::class, 'destroy'])->name('groceries.destroy');
 Route::redirect('/', '/groceries');
+
+// TODO: ongebruikte / uitgecommentariseerde code verwijderen voor betere leesbaarheid
+
 // Route::get('/', function () {
 //     return view('categories', [
 //         'categories' => Category::all()

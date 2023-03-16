@@ -12,6 +12,8 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+     // TODO: niet nodig, wel mogelijk leuke extra opdracht: voeg wat boodschappen en categorieen aan de seeder toe
     public function run()
     {
         // \App\Models\User::factory(10)->create();

@@ -43,7 +43,9 @@ class GroceriesController extends Controller
      */
     public function store(Request $request, Grocery $grocery, Category $category)
     {
-        
+     
+        // TODO: jouw oplossing is prima. Maar je kunt evt. onderstaande validatie in een aparte form validation class zetten (zie laravel documentatie)
+        // zodat je dezelfde rules (class) voor zowel de store als de update method kunt toepassen (hergebruik van code)
         $attributes = request()->validate([
             'name' => ['required', 'min:2', 'max:255'],
             'category_id' => ['required'],
