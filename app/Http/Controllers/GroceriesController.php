@@ -41,17 +41,9 @@ class GroceriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Grocery $grocery, Category $category)
+    public function store(StoreGroceryRequest $request): RedirectResponse
     {
-     
-        // TODO: jouw oplossing is prima. Maar je kunt evt. onderstaande validatie in een aparte form validation class zetten (zie laravel documentatie)
-        // zodat je dezelfde rules (class) voor zowel de store als de update method kunt toepassen (hergebruik van code)
-        $attributes = request()->validate([
-            'name' => ['required', 'min:2', 'max:255'],
-            'category_id' => ['required'],
-            'price'  => ['required', 'numeric'],
-            'quantity' => ['required', 'integer', 'gt:0'],
-        ]);
+        $validated = $request->validated();
 
         Grocery::create($attributes);
         return redirect('/'); 
@@ -87,19 +79,13 @@ class GroceriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grocery $grocery, Category $category)
+    public function update(StoreGroceryRequest $request): RedirectResponse
     {
-        $attributes = request()->validate([
-            'name' => ['required', 'min:2', 'max:255'],
-            'category_id' => ['required'],
-            'price'  => ['required', 'numeric'],
-            'quantity' => ['required', 'integer', 'gt:0'],
-        ]);
+        $validated = $request->validated();
 
         $grocery->update($attributes);
         return redirect('/')->with('succes', 'Boodschap bijgewerkt');
     }
-
 
     /**
      * Remove the specified resource from storage.
